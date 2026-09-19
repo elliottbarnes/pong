@@ -1,83 +1,27 @@
-🏓 Pong Game App
+# Browser Pong
 
-Welcome to the Pong Game App! 🎮 This project is a modern take on the classic Pong game, built with Python and Flask. It’s a simple yet fun game where you can challenge yourself against a computer opponent. 🕹️
+A small Pong game rendered with JavaScript and HTML Canvas, served by a minimal Flask application.
 
-🚀 Getting Started
+## Run locally
 
-Prerequisites
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install flask
+python app.py
+```
 
-Before you begin, ensure you have the following installed on your machine:
+Open `http://127.0.0.1:5000`. Move your mouse over the canvas to control the left paddle; the right paddle follows the ball automatically. Scores increase when the ball passes a paddle. The current implementation continues indefinitely and has no first-to-ten win condition.
 
-	•	🐍 Python 3.6+
-	•	🛠️ Flask
+## How it works
 
-Installation
+- `app.py`: serves one page through Flask.
+- `templates/pong.html`: canvas rendering, collision detection, computer paddle movement, and scoring.
 
-	1.	Clone the repository:
+The canvas is fixed at 800 × 600 pixels and uses mouse input. Touch controls, responsive sizing, multiplayer, persistence, and a leaderboard are not implemented.
 
-  ``bash
-  git clone https://github.com/elliottbarnes/pong.git
-  cd pong
-  ``
+## Development status
 
-	2.	Install the required packages:
+A learning prototype with no pinned dependency environment or automated tests. `app.py` enables Flask’s development debugger; use it for local development. The commands above reflect the source structure but have not been runtime-tested in this documentation pass.
 
- ``bash
- pip install flask
- ``
-
- 	3.	Run the app:
-  ``bash
-  python app.py
-  ``
-
-  🕹️ How to Play
-
-	•	Move the paddle: Use your mouse to move your paddle up and down.
-	•	Score points: Try to make the ball pass by your opponent’s paddle to score points.
-	•	Win the game: The first player to reach 10 points wins!
-
-🎨 Features
-
-	•	Classic Pong gameplay: Simple and fun!
-	•	Responsive design: The game adapts to different screen sizes.
-	•	Smooth animations: Enjoy a visually pleasing experience.
-
-🌱 Future Enhancements
-
-	•	🏆 Leaderboard: Add a feature to keep track of high scores.
-	•	👥 Multiplayer mode: Challenge your friends to a match!
-	•	🎨 Customizable themes: Change the game’s look and feel with different themes.
-
-🤝 Contributing
-
-Contributions are welcome! 🎉 If you’d like to add features, fix bugs, or improve the game, feel free to fork the repository and make a pull request.
-
-	1.	Fork the repository
-	2.	Create a new branch:
-
- ``bash
-   git checkout -b feature-new-feature
- ``
- 
-   3.	Make your changes and commit:
-
-  ``bash
-	 git commit -m "Add new feature"
-  ``
-
-  	4.	Push to the branch:
-
-   ``bash
-    git push origin feature-new-feature
-   ``
-
-   5.	Submit a pull request
-  
-  📝 License
-  
-  This project is licensed under the MIT License. See the LICENSE file for more details.
-  
-  🙏 Acknowledgements
-  
-  A huge thank you to the open-source community for the inspiration and resources that made this project possible. 🌟
+No license file is currently included; the previous README’s MIT-license claim has been removed.
