@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="A complete browser Pong match: keyboard, pointer and touch controls, pause, three speeds, and first to seven."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <link rel="icon" href="./favicon.svg" />
+    <title>Pong — first to seven</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="https://elliottbarnes.ca">ELLIOTT BARNES / PLAY</a
+      ><a href="https://github.com/elliottbarnes/pong">SOURCE ↗</a>
+    </header>
+    <main>
+      <div class="eyebrow">01 / A small game, finished</div>
+      <h1>Keep it in play.</h1>
+      <p class="intro">
+        You, a paddle, and one very persistent opponent. First to seven takes
+        the match.
+      </p>
+      <div class="layout">
+        <section class="stage" aria-label="Pong court">
+          <div class="stage-head">
+            <strong>PONG</strong
+            ><span class="badge" id="phase">READY TO SERVE</span>
+          </div>
+          <canvas
+            id="court"
+            width="800"
+            height="500"
+            tabindex="0"
+            aria-label="Pong court. Control your left paddle using W and S, up and down arrows, or a pointer. Space starts or pauses."
+            aria-describedby="status"
+            >Use a browser with Canvas support to play.</canvas
+          >
+          <p class="status" id="status" role="status" aria-live="polite">
+            Choose a speed, then start your match.
+          </p>
+        </section>
+        <aside class="sidebar">
+          <section class="panel">
+            <dl class="stats">
+              <div>
+                <dt>You</dt>
+                <dd id="you">0</dd>
+              </div>
+              <div>
+                <dt>Computer</dt>
+                <dd id="computer">0</dd>
+              </div>
+            </dl>
+            <div class="controls">
+              <button class="primary" id="play">Start match</button
+              ><button id="reset">New match</button>
+            </div>
+            <div class="field">
+              <label for="difficulty">Match speed</label
+              ><select id="difficulty">
+                <option value="relaxed">Relaxed</option>
+                <option value="standard" selected>Standard</option>
+                <option value="quick">Quick</option>
+              </select>
+            </div>
+            <p class="small">
+              Longest rally: <strong id="rally">0</strong> returns
+            </p>
+          </section>
+          <section class="panel">
+            <h2>Your controls</h2>
+            <p>
+              Move your pointer or drag inside the court. On a keyboard, use
+              <kbd>↑</kbd> <kbd>↓</kbd> or <kbd>W</kbd> <kbd>S</kbd>.
+            </p>
+            <p>
+              <kbd>Space</kbd> starts, pauses, or resumes. A new serve waits
+              after each point.
+            </p>
+            <p class="note">
+              The match pauses when you leave the tab. Changing speed begins a
+              new match.
+            </p>
+          </section>
+        </aside>
+      </div>
+    </main>
+    <footer>
+      <span>A JavaScript Canvas game. No accounts, tracking, or downloads.</span
+      ><a
+        href="https://github.com/elliottbarnes/pong#development-and-verification"
+        >How it works ↗</a
+      >
+    </footer>
+  </body>
+</html>
