@@ -1,27 +1,32 @@
 # Browser Pong
 
-A small Pong game rendered with JavaScript and HTML Canvas, served by a minimal Flask application.
+A complete first-to-seven Pong match with pointer, touch and keyboard controls, three speeds, pause/resume, match reset, and a capped-speed computer opponent.
+
+**[Play Pong](https://elliottbarnes.github.io/pong/)** · [Game engine](demo/engine.js) · [Tests](tests/engine.test.js)
 
 ## Run locally
 
+No install or server framework is needed for the static game:
+
 ```sh
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install flask
-python app.py
+python3 -m http.server 8000 --bind 127.0.0.1 --directory demo
 ```
 
-Open `http://127.0.0.1:5000`. Move your mouse over the canvas to control the left paddle; the right paddle follows the ball automatically. Scores increase when the ball passes a paddle. The current implementation continues indefinitely and has no first-to-ten win condition.
+Open `http://127.0.0.1:8000`. Move inside the court or use W/S or the arrow keys. Space starts or pauses. Each point waits for a new serve; seven points ends the match. The game pauses when the tab loses focus.
 
-## How it works
+The optional `app.py` Flask host serves the same `demo/` files on `127.0.0.1:5000`, with debugging disabled. Flask is not required for the game or deployment. If you need that host, create a virtual environment, run `python -m pip install -r requirements.txt`, then `python app.py`. Flask is pinned in `requirements.txt`. Run its smoke test with `python -m unittest discover -s tests -p "test_*.py"`. The old template is a redirect rather than a second game implementation.
 
-- `app.py`: serves one page through Flask.
-- `templates/pong.html`: canvas rendering, collision detection, computer paddle movement, and scoring.
+## Development and verification
 
-The canvas is fixed at 800 × 600 pixels and uses mouse input. Touch controls, responsive sizing, multiplayer, persistence, and a leaderboard are not implemented.
+With Node.js 24:
 
-## Development status
+```sh
+node --test
+node scripts/build-demo.mjs
+```
 
-A learning prototype with no pinned dependency environment or automated tests. `app.py` enables Flask’s development debugger; use it for local development. The commands above reflect the source structure but have not been runtime-tested in this documentation pass.
+The pure engine separates game state from drawing. Physics uses bounded time steps, paddle-crossing checks, a maximum ball speed, and a full velocity reset between points. Tests exercise collisions, score transitions, match completion, paused state, clamped input, and large frame gaps.
 
-No license file is currently included; the previous README’s MIT-license claim has been removed.
+GitHub Actions runs the tests and syntax checks before deploying only `demo/` through an explicit `dist/` artifact. `build.json` identifies the source commit and hashes of published files. All visuals are drawn with Canvas and CSS. The browser game has no runtime dependencies, network requests, accounts, telemetry, or saved scores.
+
+This completes the original Canvas learning prototype as a single-player browser game. Multiplayer, ranked play, and persistence are outside its scope. Keyboard users can operate the controls and read score/status text; the moving-ball game still requires visual tracking. No license has been added or inferred.
