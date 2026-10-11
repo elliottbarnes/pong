@@ -100,9 +100,9 @@ function sync() {
   }
 }
 function draw() {
-  ctx.fillStyle = "#10151e";
+  ctx.fillStyle = "#100d1e";
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
-  ctx.strokeStyle = "#343e4d";
+  ctx.strokeStyle = "#59416e";
   ctx.lineWidth = 2;
   ctx.setLineDash([8, 12]);
   ctx.beginPath();
@@ -110,25 +110,25 @@ function draw() {
   ctx.lineTo(WIDTH / 2, HEIGHT - 24);
   ctx.stroke();
   ctx.setLineDash([]);
-  ctx.strokeStyle = "#26313e";
+  ctx.strokeStyle = "#302344";
   ctx.strokeRect(18, 18, WIDTH - 36, HEIGHT - 36);
-  ctx.fillStyle = "#b0e882";
+  ctx.fillStyle = "#ef9fff";
   ctx.fillRect(32, game.left.y, PADDLE_WIDTH, PADDLE_HEIGHT);
-  ctx.fillStyle = "#aab5c6";
+  ctx.fillStyle = "#c3afd1";
   ctx.fillRect(
     WIDTH - 32 - PADDLE_WIDTH,
     game.right.y,
     PADDLE_WIDTH,
     PADDLE_HEIGHT,
   );
-  ctx.fillStyle = "#edf1f6";
+  ctx.fillStyle = "#faf0ff";
   ctx.beginPath();
   ctx.arc(game.ball.x, game.ball.y, BALL_RADIUS, 0, Math.PI * 2);
   ctx.fill();
   if (game.phase !== "playing") {
     ctx.fillStyle = "rgba(16,21,30,.65)";
     ctx.fillRect(110, HEIGHT / 2 - 64, WIDTH - 220, 128);
-    ctx.fillStyle = "#edf1f6";
+    ctx.fillStyle = "#faf0ff";
     ctx.font = "600 26px system-ui";
     ctx.textAlign = "center";
     ctx.fillText(
@@ -141,7 +141,7 @@ function draw() {
       HEIGHT / 2 - 7,
     );
     ctx.font = "15px system-ui";
-    ctx.fillStyle = "#aab5c6";
+    ctx.fillStyle = "#c3afd1";
     ctx.fillText(
       game.phase === "over"
         ? "Choose Play again for a rematch"

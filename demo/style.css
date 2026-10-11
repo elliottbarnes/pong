@@ -1,12 +1,12 @@
 :root {
   color-scheme: dark;
-  --bg: #101219;
-  --panel: #181c26;
-  --line: #353c4c;
-  --text: #edf1f6;
-  --muted: #aab5c6;
-  --accent: #b0e882;
-  --dark: #15240d;
+  --bg: #100e20;
+  --panel: #1a1530;
+  --line: #514167;
+  --text: #faf0ff;
+  --muted: #c3afd1;
+  --accent: #ef9fff;
+  --dark: #260c30;
   font-family:
     ui-sans-serif,
     system-ui,
@@ -35,7 +35,7 @@ select {
 button,
 select {
   min-height: 44px;
-  background: #222936;
+  background: #2a203e;
   border: 1px solid var(--line);
   color: var(--text);
   padding: 10px 15px;
@@ -181,7 +181,7 @@ canvas {
   width: 100%;
   height: auto;
   touch-action: none;
-  background: #10151e;
+  background: #100d1e;
 }
 .board-wrap {
   padding: 18px;
@@ -215,8 +215,8 @@ canvas {
   font-variant-numeric: tabular-nums;
 }
 kbd {
-  background: #252e3c;
-  border: 1px solid #465267;
+  background: #302344;
+  border: 1px solid #725386;
   border-bottom-width: 2px;
   border-radius: 4px;
   padding: 1px 6px;
@@ -327,3 +327,7 @@ footer {
     padding: 14px;
   }
 }
+
+
+/* Pong — neon magenta and ice arcade */
+h1{font-family:ui-monospace,monospace;text-transform:uppercase;letter-spacing:-.055em;text-shadow:3px 3px 0 #65315f}.eyebrow,.stats dd{color:#8de9f0}.stage{border-radius:0;border:2px solid #80609b;box-shadow:0 0 32px #e083ed12}.panel{border-radius:2px}button,select{border-radius:2px}.stage-head{background:#251939}.stats dd{font-family:ui-monospace,monospace}header{border-bottom:2px solid #8de9f0}
